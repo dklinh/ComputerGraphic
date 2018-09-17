@@ -1,0 +1,40 @@
+#include <iostream>
+#include <GL/glut.h>
+using namespace std;
+
+/**
+ * gl : các l?nh liên quan d?n v?
+ * glut : các l?nh liên quan d?n c?a s?, màn hình ..
+ * */
+
+void displayMe(void)
+{
+    // L?nh xóa n?n
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+    // B?t d?u v? da giác
+    glBegin(GL_POLYGON);
+        // Các d?nh du?c li?t kê s? t? n?i v?i nhau và d?nh cu?i s? nôi v?i d?nh d?u 
+        glVertex3f(1.0, 0.0, 2.0);
+        glVertex3f(0.5, 0.0, 0.0);
+        glVertex3f(0.0, 0.5, 0.0);
+        glVertex3f(1.0, 0.0, 0.5);
+        glVertex3f(1, 2, 3);
+    glEnd();
+    // Lo?i b? các transforms
+    glFlush();
+    
+}
+ 
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE);
+    glutInitWindowSize(800, 600);
+    glutInitWindowPosition(100, 100);
+    glutCreateWindow("Hello world!");
+    glutDisplayFunc(displayMe);
+    glutMainLoop();
+    return 0;
+}
